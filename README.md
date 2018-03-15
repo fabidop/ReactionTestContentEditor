@@ -1,1 +1,1 @@
-# ReactionTestContentEditor
+# AbstractContentEditor

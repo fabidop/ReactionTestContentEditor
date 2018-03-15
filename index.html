@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AbstractContentEditor</title>
+    <script type="application/javascript"> 
+        /** 
+            dont delete! used for initialization.
+        **/
+
+        function init() {
+            window.data = getData();
+            setDataGetter(dataGetter)
+        }
+    </script>
+</head>
+<body>
+
+    <!-- EDIT Form for User Input -->
+    <div>
+        <label for="titleInput">Enter Title:</label>
+        <input id="titleInput" type="text" />
+    </div>
+    <!-- EDIT Form for User Input -->
+
+    <!-- EDIT Form logic -->
+    <script type="application/javascript">
+        /** 
+            dataGetter (as referenced in function init() ) returns data object with values from form.
+
+            Sharing cards e.g. on facebook uses following 3 properties for displaying the preview:
+            title
+            description
+            imageUrl
+
+            for example:
+            title: document.getElementById('titleInput').value,
+            type: 'FillIN',
+            fillintext: document.getElementById('fillintext').value,
+            questionContext: document.getElementById('hintInput').value,
+            answerContext: document.getElementById('explanationInput').value,
+            lastEdit: Date.now(),
+            answers: extractAnswersToArray(document.getElementById('fillintext').value),
+            releaseStatus: 'PUBLIC',
+            multimedia: [],
+            description: replacePossibleAnswers(document.getElementById('fillintext').value)
+        **/
+        function dataGetter() {
+            return {
+                // return data object
+                lastEdit: Date.now(),
+                title: document.getElementById('titleInput').value
+            }
+        }
+
+        /** 
+            function init() -> dont delete! used for initialization.
+        **/
+        init();
+
+        /** 
+            For each input field in form get & set values from windows.data object.
+            Is used when user is editing this card.
+
+            for example:
+            document.getElementById('fillintext').value = window.data.fillintext;
+            document.getElementById('hintInput').value = window.data.questionContext;
+            document.getElementById('explanationInput').value = window.data.answerContext;
+
+        **/
+        document.getElementById('titleInput').value = window.data.title;
+
+    </script>
+    <!-- EDIT Form logic -->
+</body>
+</html>
