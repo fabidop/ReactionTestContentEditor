@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AbstractContentEditor</title>
+    <title>ReactionTestContentEditor</title>
     <script type="application/javascript"> 
         /** 
             dont delete! used for initialization.
@@ -49,6 +49,7 @@
             return {
                 // return data object
                 lastEdit: Date.now(),
+                type: 'reaction',
                 title: document.getElementById('titleInput').value
             }
         }
